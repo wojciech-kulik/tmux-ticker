@@ -3,7 +3,7 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 source "$CURRENT_DIR/helpers.sh"
 
-stock_ticker_name=$(get_tmux_option "@ticker_stock" )
+stock_ticker_name=$(get_tmux_option "@ticker_stock$1" )
 
 positive_style=$(get_tmux_option "@ticker_positive_style" "#[fg=#00FF00]")
 negative_style=$(get_tmux_option "@ticker_negative_style" "#[fg=#FF0000]")

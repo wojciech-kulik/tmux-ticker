@@ -47,7 +47,9 @@ do_interpolation() {
 	local interpolated="$1"
 
 	for ((i=0; i<${#ticker_commands[@]}; i++)); do
-		interpolated=${interpolated/${ticker_interpolation[$i]}/${ticker_commands[$i]}}
+    if [[ -z "${ticker_interpolation[$i]}" ]]; then
+  		interpolated=${interpolated/${ticker_interpolation[$i]}/${ticker_commands[$i]}}
+    fi
 	done
 
 	echo "$interpolated"

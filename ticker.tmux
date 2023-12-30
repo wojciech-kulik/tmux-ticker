@@ -47,9 +47,7 @@ do_interpolation() {
 	local interpolated="$1"
 
 	for ((i=0; i<${#ticker_commands[@]}; i++)); do
-    if [[ -z $(get_tmux_option "${ticker_interpolation[$i]}") ]]; then
-  		interpolated=${interpolated/${ticker_interpolation[$i]}/${ticker_commands[$i]}}
-    fi
+    interpolated=${interpolated/${ticker_interpolation[$i]}/${ticker_commands[$i]}}
 	done
 
 	echo "$interpolated"

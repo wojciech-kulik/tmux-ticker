@@ -11,10 +11,12 @@ negative_style=$(get_tmux_option "@ticker_negative_style" "#[fg=#FF0000]")
 main() {
     online='wget -q --spider https://google.com'
 
-    if [[ $? -eq 0 ]]; then
-        get_stock
-    else
-        echo "Error, No Internet"
+    if [[ -z $stock_ticker_name ]]; then
+      if [[ $? -eq 0 ]]; then
+          get_stock
+      else
+          echo "Error, No Internet"
+      fi
     fi
 }
 

@@ -11,7 +11,7 @@ negative_style=$(get_tmux_option "@ticker_negative_style" "#[fg=#FF0000]")
 main() {
     online='wget -q --spider https://google.com'
 
-    if [[ -z "$stock_ticker_name" ]]; then
+    if [[ ! -z "$stock_ticker_name" ]]; then
       if [[ $? -eq 0 ]]; then
           get_stock
       else
